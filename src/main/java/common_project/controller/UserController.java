@@ -2,6 +2,8 @@ package common_project.controller;
 
 import common_project.model.dto.UserDto;
 import common_project.service.UserService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,8 +30,10 @@ public class UserController {
     
     /** 로그인 */
     @PostMapping("/login")
-    public boolean _login(@RequestBody() UserDto userDto) {
-        boolean result = userService._login(userDto);
+    public boolean _login(@RequestBody() UserDto userDto, HttpServletRequest req) {
+        // HttpSession session = req.getSession();
+        boolean result = userService._login(userDto, req);
+        System.out.println(result ? "로그인 성공" : "로그인 실패");
         return result;
     }
 

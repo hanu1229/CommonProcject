@@ -31,6 +31,6 @@ public interface UserMapper {
             @Result(property = "joinDate", column = "join_date"),
             @Result(property = "dropState", column = "drop_state")
     })
-    List<UserDto> _login(UserDto userDto);
+    List<UserDto> _login();
     
 }
